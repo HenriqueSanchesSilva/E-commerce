@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavComponent } from './components/shared/nav/nav.component';
-import { BookstoreAppComponent } from './components/bookstore-app/bookstore-app.component';
-import { FiltersComponent } from './components/bookstore-app/filters/filters.component';
-import { ProductComponent } from './components/bookstore-app/product/product.component';
-import { ProductItemComponent } from './components/bookstore-app/product/product-item/product-item.component';
+import { BookCartComponent } from './components/book-cart/book-cart.component';
+import { ProductListComponent } from './components/book-cart/product-list/product-list.component';
+import { FiltersComponent } from './components/book-cart/filters/filters.component';
+
+import { ProductItemComponent } from './components/book-cart/product-list/product-item/product-item.component';
+import { HttpClientModule } from '@angular/common/http';
+import {BooksService} from './components/book-cart/product-list/product-list.service';
 
 @NgModule({
   declarations: [
@@ -17,16 +20,17 @@ import { ProductItemComponent } from './components/bookstore-app/product/product
     HeaderComponent,
     FooterComponent,
     NavComponent,
-    BookstoreAppComponent,
+    BookCartComponent,
+    ProductListComponent,
     FiltersComponent,
-    ProductComponent,
     ProductItemComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [BooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
